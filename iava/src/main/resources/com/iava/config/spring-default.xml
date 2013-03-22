@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="
+			http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+			http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-2.5.xsd
+			http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-2.5.xsd">
+
+	<!-- <bean class="com.tydic.util.SpringContext" lazy-init="false"/> -->
+
+	<bean
+		class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+		<property name="locations">
+			<list>
+				<value>file:./config/iava/jdbc-config.properties</value>
+				<value>file:./config/iava/cache-config.properties</value>
+				<value>file:./config/iava/sysconf.properties</value>
+			</list>
+		</property>
+	</bean>
+
+	<!-- tx advice -->
+	<tx:advice id="txAdvice" transaction-manager="transactionManager">
+		<tx:attributes>
+			<tx:method name="*" />
+		</tx:attributes>
+	</tx:advice>
+
+	<!-- txManager -->
+	<bean id="transactionManager"
+		class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+		<property name="dataSource" ref="dataSource" />
+	</bean>
+
+	<!-- sqlmap client template 
+	<bean id="sqlClient" class="org.springframework.orm.ibatis.SqlMapClientTemplate">
+		<property name="sqlMapClient">
+			<bean class="org.springframework.orm.ibatis.SqlMapClientFactoryBean">
+				<property name="configLocation" value="classpath:com/tydic/config/ibatis-default.xml" />
+				<property name="dataSource" ref="dataSource" />
+			</bean>
+		</property>
+	</bean>-->
+	<bean id="sqlMapClient" class="org.springframework.orm.ibatis.SqlMapClientFactoryBean">
+		<property name="configLocation" value="classpath:com/iava/config/ibatis-default.xml" />
+		<property name="dataSource" ref="dataSource" />
+	</bean>
+	
+	<bean id="sqlClient" class="org.springframework.orm.ibatis.SqlMapClientTemplate">
+		<property name="sqlMapClient" ref="sqlMapClient"/>
+	</bean>
+	<bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource">
+		<property name="driverClassName" value="${jdbc.driver}"></property>
+		<property name="url" value="${jdbc.url}"></property>
+		<property name="username" value="${jdbc.username}"></property>
+		<property name="password" value="${jdbc.password}"></property>
+	</bean>
+	<bean id="mcc" class="net.rubyeye.xmemcached.utils.XMemcachedClientFactoryBean"
+		destroy-method="shutdown">
+		<property name="servers">
+			<value>${cache.list}</value>
+		</property>
+		<!-- <property name="weights"> <value>${cache.list.weight}</value> </property> -->
+		<property name="connectionPoolSize" value="${cache.connSize}" />
+		<property name="failureMode" value="${cache.failover}" />
+		<!-- Use binary protocol,default is TextCommandFactory -->
+		<property name="commandFactory">
+			<bean class="net.rubyeye.xmemcached.command.BinaryCommandFactory"></bean>
+		</property>
+		<!-- Distributed strategy -->
+		<property name="sessionLocator">
+			<!-- consistent hash -->
+			<bean class="net.rubyeye.xmemcached.impl.KetamaMemcachedSessionLocator" />
+		</property>
+		<!-- Serializing transcoder -->
+		<property name="transcoder">
+			<bean class="net.rubyeye.xmemcached.transcoders.SerializingTranscoder" />
+		</property>
+		<!-- ByteBuffer allocator -->
+		<property name="bufferAllocator">
+			<bean class="net.rubyeye.xmemcached.buffer.SimpleBufferAllocator"></bean>
+		</property>
+	</bean>
+	<!-- xmem客户端 -->
+	<bean id="xmemClient" class="com.tydic.cache.XMemClient"
+		lazy-init="true" init-method="init">
+		<property name="isBuildKey" value="true" />
+		<property name="connectionTime" value="${cache.connectTimeout}"/>
+		<property name="readTime" value="${cache.readTimeout}"/>
+		<property name="expireTime" value="${cache.expireTime}"/>
+		<property name="mcc" ref="mcc">
+		</property>
+	</bean>
+	<!-- 默认的缓存拦截器 -->
+	<bean id="default.cache.Interceptor" class="com.tydic.activity.common.MemCacheDefInterceptor">
+		<property name="cacheHandler">
+			<ref local="xmemClient" />
+		</property>
+	</bean>
+</beans>

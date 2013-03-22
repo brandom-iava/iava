@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+	<!--设置Struts 2应用是否使用开发模式-->
+	<constant name="struts.devMode" value="false" />
+	<!--指定所需的国际化资源-->
+	<constant name="struts.custom.i18n.resources" value="messageResource" />
+	<!--指定web应用的默认编码集-->
+	<constant name="struts.i18n.encoding" value="GBK" />
+	<!-- 是否允许在Struts 2标签中使用表达式语法 -->
+	<constant name="struts.tag.altSyntax" value="true" />
+	<!-- 指定struts的工厂类 -->
+	<constant name="struts.objectFactory" value="spring" />
+	<!-- 设置是否对freemarker的模板设置缓存 -->
+	<constant name="struts.freemarker.templatesCache" value="true" />
+	<!-- 指定spring框架的装配模式 -->
+	<constant name="struts.objectFactory.spring.autoWire" value="name" />
+	<!--指定需要Struts 2处理请求的后缀-->
+	<constant name="struts.action.extension" value="do" />
+	<constant name="struts.ognl.allowStaticMethodAccess" value="true" />
+	
+	
+	<!-- add struts action config -->
+	<include file="com/iava/test/config/struts-test.xml" />
+</struts>
+
