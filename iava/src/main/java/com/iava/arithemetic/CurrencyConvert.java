@@ -2,8 +2,8 @@ package com.iava.arithemetic;
 
 public class CurrencyConvert {
 
-	String []upDigit={"Áã","Ò»","¶ş","Èı","ËÄ","Îå","Áù","Æß","°Ë","¾Å"};
-	String []unit={"Íò","Ç§","°Ù","Ê®"};
+	String []upDigit={"é›¶","ä¸€","äºŒ","ä¸‰","å››","äº”","å…­","ä¸ƒ","å…«","ä¹"};
+	String []unit={"ä¸‡","åƒ","ç™¾","å"};
 	
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
