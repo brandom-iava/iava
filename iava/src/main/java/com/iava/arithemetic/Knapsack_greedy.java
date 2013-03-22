@@ -2,7 +2,7 @@ package com.iava.arithemetic;
 
 public class Knapsack_greedy {
 
-	//±³°üÎÊÌâµÄÇó½â£¨¿É·Ö¸îµÄ°ü£©
+	//èƒŒåŒ…é—®é¢˜çš„æ±‚è§£ï¼ˆå¯åˆ†å‰²çš„åŒ…ï¼‰
 	public float greedy_Knapsack(float M , Knapsack sack[] , float x[])
 	{
 		
@@ -21,7 +21,7 @@ public class Knapsack_greedy {
 				x[i]=1;
 				m-=sack[i].w;
 				p+=sack[i].p;
-			}else//×îºóÒ»¸ö°ü£¬¿ÉÒÔ·Ö¸î
+			}else//æœ€åä¸€ä¸ªåŒ…ï¼Œå¯ä»¥åˆ†å‰²
 			{
 				x[i]=m/sack[i].w;
 				p+=x[i]*sack[i].p;
