@@ -1,14 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:aop="http://www.springframework.org/schema/aop"
-	xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:tx="http://www.springframework.org/schema/tx"  xmlns:context="http://www.springframework.org/schema/context"
 	xsi:schemaLocation="
 			http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
 			http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-2.5.xsd
-			http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-2.5.xsd">
+			http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-2.5.xsd
+			http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-2.5.xsd">
 
 	<!-- <bean class="com.tydic.util.SpringContext" lazy-init="false"/> -->
-
+	<import resource="classpath:com/iava/test/config/spring-test.xml"/>
+	<context:annotation-config/>
+	<aop:aspectj-autoproxy/>
+	<!-- 要让JSR-250 的注释生,需要添加下面配置（spring还支持JSR规范定义的 @Resource（相当于@Autowired）、@PostConstruct 以及 @PreDestroy等注解） -->
+	<bean class="org.springframework.context.annotation.CommonAnnotationBeanPostProcessor"/>
+	<!-- 自动扫描制定包名下的含有bean注解的类自动装入到bean容器 -->
+	<context:component-scan base-package="com.iava.opensource.spring" />
 	<bean
 		class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
 		<property name="locations">
@@ -19,7 +26,8 @@
 			</list>
 		</property>
 	</bean>
-
+	<bean id="memcachedAdvise" class="com.iava.opensource.spring.MemcachedAdvise">
+    </bean>
 	<!-- tx advice -->
 	<tx:advice id="txAdvice" transaction-manager="transactionManager">
 		<tx:attributes>
@@ -82,7 +90,7 @@
 			<bean class="net.rubyeye.xmemcached.buffer.SimpleBufferAllocator"></bean>
 		</property>
 	</bean>
-	<!-- xmem客户端 -->
+	<!-- xmem客户端 
 	<bean id="xmemClient" class="com.tydic.cache.XMemClient"
 		lazy-init="true" init-method="init">
 		<property name="isBuildKey" value="true" />
@@ -91,11 +99,11 @@
 		<property name="expireTime" value="${cache.expireTime}"/>
 		<property name="mcc" ref="mcc">
 		</property>
-	</bean>
-	<!-- 默认的缓存拦截器 -->
+	</bean>-->
+	<!-- 默认的缓存拦截器 
 	<bean id="default.cache.Interceptor" class="com.tydic.activity.common.MemCacheDefInterceptor">
 		<property name="cacheHandler">
 			<ref local="xmemClient" />
 		</property>
-	</bean>
+	</bean>-->
 </beans>
