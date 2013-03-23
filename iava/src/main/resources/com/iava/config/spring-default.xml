@@ -12,10 +12,13 @@
 	<import resource="classpath:com/iava/test/config/spring-test.xml"/>
 	<context:annotation-config/>
 	<aop:aspectj-autoproxy/>
-	<!-- 要让JSR-250 的注释生,需要添加下面配置（spring还支持JSR规范定义的 @Resource（相当于@Autowired）、@PostConstruct 以及 @PreDestroy等注解） -->
-	<bean class="org.springframework.context.annotation.CommonAnnotationBeanPostProcessor"/>
+	<!-- 要让JSR-250 的注释生,需要添加下面配置（spring还支持JSR规范定义的 @Resource（相当于@Autowired）、@PostConstruct 以及 @PreDestroy等注解） 
+	, 申明了context:annotation-config这个就不需要了
+	<bean class="org.springframework.context.annotation.CommonAnnotationBeanPostProcessor"/>-->
+	
 	<!-- 自动扫描制定包名下的含有bean注解的类自动装入到bean容器 -->
-	<context:component-scan base-package="com.iava.opensource.spring" />
+	<context:component-scan base-package="com.iava.opensource.spring">
+	</context:component-scan>
 	<bean
 		class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
 		<property name="locations">

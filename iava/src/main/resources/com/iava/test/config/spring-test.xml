@@ -6,9 +6,4 @@
 			http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
 			http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-2.5.xsd">
 
-<aop:config proxy-target-class="true">
-		<!-- 缓存内容拦截AOP配置-->
-		<aop:advisor pointcut="execution(* com.tydic.activity.common.ActivitySysDataDaoImpl.testMemcached(..))" advice-ref="default.cache.Interceptor"/>
-	</aop:config>	
-
 </beans>
