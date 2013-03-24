@@ -8,6 +8,8 @@ import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Pointcut;
 
+import com.iava.cache.Memcached;
+
 @Aspect
 public class MemcachedAdvise {
 
@@ -27,11 +29,11 @@ public class MemcachedAdvise {
 	
 	@Pointcut("@annotation(com.iava.cache.Memcached)")
 	public void memcacheGet(){
-		
+		System.out.println();
 	}
 	
-	@Around("memcacheGet()")
-	public Object memcacheGetQuery(ProceedingJoinPoint pjp) throws Throwable{
+	@Around(value="memcacheGet() && @annotation(memcached)",argNames="memcached")
+	public Object memcacheGetQuery(ProceedingJoinPoint pjp,Memcached me) throws Throwable{
 		pjp.proceed();
 		
 		pjp.getTarget();
