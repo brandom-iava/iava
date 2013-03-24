@@ -699,7 +699,7 @@ Here is an example of CacheManager level resource tuning, which will use up to 4
     disk cache, which in this configuration will go to wherever java.io.tmp is
     defined on your system. On a standard Linux system this will be /tmp"
     -->
-    <cache name="sampleCache1"
+    <cache name="com.iava.MethodCache"
            maxEntriesLocalHeap="10000"
            maxEntriesLocalDisk="1000"
            eternal="false"
