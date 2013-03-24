@@ -129,7 +129,7 @@
             <value>com.iava.MethodCache</value>  
         </property>  
     </bean>  
-    <bean id="methodCacheInterceptor" class="intercepter.MethodCacheInterceptor">  
+    <bean id="methodCacheInterceptor" class="com.iava.cache.ehcache.MethodCacheInterceptor">  
         <property name="cache">  
             <ref local="methodCache"/>  
         </property>  
@@ -158,6 +158,6 @@
         </property>  
     </bean>  
       
-    <bean id="personManagerTarget" class="manager.PersonManagerImpl"/>  
+    <bean id="personManagerTarget" class="com.iava.cache.ehcache.PersonManagerImpl"/>  
 </beans>  
 </beans>
