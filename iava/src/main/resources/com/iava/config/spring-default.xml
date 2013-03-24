@@ -159,5 +159,4 @@
     </bean>  
       
     <bean id="personManagerTarget" class="com.iava.cache.ehcache.PersonManagerImpl"/>  
-</beans>  
 </beans>
