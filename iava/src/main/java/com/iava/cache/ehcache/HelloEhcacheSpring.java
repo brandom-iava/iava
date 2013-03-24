@@ -10,7 +10,7 @@ public class HelloEhcacheSpring {
     public static void main(String[] args) {  
         ApplicationContext context = new ClassPathXmlApplicationContext("com/iava/config/spring-default.xml");  
           
-        PersonManagerImpl personManager = (PersonManagerImpl) context.getBean("personManager");//配置了spring就可以从配置文件里找到对应的接口实现类，再生成实例对象，以完成业务处理  
+        PersonManagerImpl personManager = (PersonManagerImpl) context.getBean("personManagerTarget");//配置了spring就可以从配置文件里找到对应的接口实现类，再生成实例对象，以完成业务处理  
           
         for(int i=0;i<5;i++) {  
             showPersonsInfo(personManager);  
