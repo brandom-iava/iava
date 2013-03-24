@@ -112,4 +112,52 @@
 			<ref local="xmemClient" />
 		</property>
 	</bean>-->
+	
+	<!-- 在spring里配置cache就和在spring配置数据库一样， -->  
+         
+    <bean id="cacheManager" class="org.springframework.cache.ehcache.EhCacheManagerFactoryBean">  
+        <property name="configLocation">    
+            <value>classpath:com/iava/config/ehcache.xml</value>    
+        </property>   
+    </bean>  
+  
+    <bean id="methodCache" class="org.springframework.cache.ehcache.EhCacheFactoryBean">  
+        <property name="cacheManager">  
+            <ref local="cacheManager"/>  
+        </property>  
+        <property name="cacheName">  
+            <value>com.iava.MethodCache</value>  
+        </property>  
+    </bean>  
+    <bean id="methodCacheInterceptor" class="intercepter.MethodCacheInterceptor">  
+        <property name="cache">  
+            <ref local="methodCache"/>  
+        </property>  
+    </bean>  
+    <bean id="methodCachePointCut" class="org.springframework.aop.support.RegexpMethodPointcutAdvisor">  
+        <property name="advice">  
+            <ref local="methodCacheInterceptor"/>  
+        </property>  
+        <!-- 下面的配置就使得在数据访问时，cache将拦截从数据库获取的数据，与cache数据比较，如有就不放入cache，没有就放入，更新到数据库去，也是先存入cache，再更新到数据库中去 -->  
+        <property name="patterns">  
+            <list>  
+                <value>.*getList</value>  
+            </list>  
+        </property>  
+    </bean>  
+  
+    <bean  id="personManager" class="org.springframework.aop.framework.ProxyFactoryBean">  
+        <property name="target">  
+            <!--<bean class="manager.PersonManagerImpl"/>-->  
+            <ref local="personManagerTarget"/>  
+        </property>  
+        <property name="interceptorNames">  
+            <list>  
+                <value>methodCachePointCut</value>  
+            </list>  
+        </property>  
+    </bean>  
+      
+    <bean id="personManagerTarget" class="manager.PersonManagerImpl"/>  
+</beans>  
 </beans>
