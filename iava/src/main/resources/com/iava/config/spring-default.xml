@@ -11,7 +11,10 @@
 	<!-- <bean class="com.tydic.util.SpringContext" lazy-init="false"/> -->
 	<import resource="classpath:com/iava/test/config/spring-test.xml"/>
 	<context:annotation-config/>
-	<aop:aspectj-autoproxy/>
+	
+	<!-- 默认使用jdk的动态代理，当使用@AspectJ自动代理时要强制使用CGLIB，请将<aop:aspectj-autoproxy> 的proxy-target-class属性设置为true -->
+	<aop:aspectj-autoproxy proxy-target-class="true"/>
+	
 	<!-- 要让JSR-250 的注释生,需要添加下面配置（spring还支持JSR规范定义的 @Resource（相当于@Autowired）、@PostConstruct 以及 @PreDestroy等注解） 
 	, 申明了context:annotation-config这个就不需要了
 	<bean class="org.springframework.context.annotation.CommonAnnotationBeanPostProcessor"/>-->
