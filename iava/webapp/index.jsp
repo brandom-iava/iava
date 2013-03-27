@@ -6,6 +6,6 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>测试页面</title>
 </head>
-<body>iava web project, hello, are you OK！<br>
+<body>iava web project,test!, are you OK！<br>
 </body>
 </html>
