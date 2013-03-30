@@ -11,7 +11,7 @@ public class EhcacheTest {
 	 */
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		CacheManager manager = CacheManager.create("E:\\workspace\\iava\\src\\main\\resources\\com\\iava\\config\\ehcache.xml");
+		CacheManager manager = CacheManager.create("F:\\tydic\\wss\\workspace\\iava\\iava\\src\\main\\resources\\com\\iava\\config\\ehcache.xml");
 
 		// 通过manager可以生成指定名称的Cache对象
 		Cache cache =  manager.getCache("sampleCache1");

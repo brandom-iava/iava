@@ -7,4 +7,13 @@
 			http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-2.5.xsd">
 	<!--默认使用jdk动态代理， 强制使用CGLIB代理需要将<aop:config>的proxy-target-class 属性设为true -->		
 	<aop:config proxy-target-class="false"></aop:config>
+	
+	<bean id="testSpringHessian" class="com.iava.opensource.hessian.TestSpringHessian">
+	    <property name="service" ref="myServiceHessianProxy"/>
+	</bean>
+	
+	<bean id="myServiceHessianProxy" class="org.springframework.remoting.caucho.HessianProxyFactoryBean">
+	    <property name="serviceUrl" value="http://localhost:8003/iava/remoting/AccountService"/>
+	    <property name="serviceInterface" value="com.iava.opensource.hessian.MyService"/>
+	</bean>
 </beans>
