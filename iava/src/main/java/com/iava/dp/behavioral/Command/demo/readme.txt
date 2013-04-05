@@ -2,26 +2,26 @@
 
  
 
-BloggerAds V¸æ
-Œ¤ÕÒÌðÃÛÐ¦ÈÝ
-Ò»ÆðŒ¤ÕÒšgÏ²¡¢¸ÐÐÄ¡¢ÌÛÏ§µÄÌðÃÛÐ¦ÈÝ£¬Ï²º©ƒº¡¸ëSÊÖ±­¡¹ËÍ½oÄã!!
-¸ü¶àÓÏ¢..
+BloggerAds å»£å‘Š
+å°‹æ‰¾ç”œèœœç¬‘å®¹
+ä¸€èµ·å°‹æ‰¾æ­¡å–œã€æ„Ÿå¿ƒã€ç–¼æƒœçš„ç”œèœœç¬‘å®¹ï¼Œå–œæ†¨å…’ã€Œå½Žå½Žéš¨æ‰‹æ¯ã€é€çµ¦ä½ !!
+æ›´å¤šè¨Šæ¯..
 Impr
 
-	Èç¹ûÄúŒ‘ß^JavaµÄSwingÒ•´°³ÌÊ½£¬Äú¿ÉÄÜÊ¹ÓÃß^CommandÄ£Ê½ÁË£¬ÀýÈçÔÚÄú°´ÏÂJMenuItemµÄ¡¸¼ôÏÂ¡¹ßxí—•r£¬ˆÌÐÐŒ¦JTextAreaµÄßx¶¨ÎÄ×ÖÖ®¼ôÏÂ„Ó×÷£¬KŒ¢ î‘BÁÐÔO¶¨žéÎÄ¼þÒÑÐÞ¸Ä î‘B¡£
+	å¦‚æžœæ‚¨å¯«éŽJavaçš„Swingè¦–çª—ç¨‹å¼ï¼Œæ‚¨å¯èƒ½ä½¿ç”¨éŽCommandæ¨¡å¼äº†ï¼Œä¾‹å¦‚åœ¨æ‚¨æŒ‰ä¸‹JMenuItemçš„ã€Œå‰ªä¸‹ã€é¸é …æ™‚ï¼ŒåŸ·è¡Œå°JTextAreaçš„é¸å®šæ–‡å­—ä¹‹å‰ªä¸‹å‹•ä½œï¼Œä¸¦å°‡ç‹€æ…‹åˆ—è¨­å®šç‚ºæ–‡ä»¶å·²ä¿®æ”¹ç‹€æ…‹ã€‚
 
-ÔÚÔOÓ‹Swing•r£¬ÔOÓ‹ÈË†TÊÇ²»¿ÉÄÜÖªµÀÊ¹ÓÃSwingî„eµÄÈË£¬ÔÚÄ³‚€ÊÂ¼þ°lÉúááËùÒªˆÌÐÐµÄ„Ó×÷ÊÇÊ²üNµÄ£¬Ëû‚ƒ’ñÓÃÁËCommandÄ£Ê½£¬ÒÔÉÏÃæµÄÐèÇó×÷žéÀý×Ó£¬Ò»‚€Œ×÷µÄÆ¬¶Î¿ÉÄÜÏñÊÇß@‚€˜Ó×Ó£º
+åœ¨è¨­è¨ˆSwingæ™‚ï¼Œè¨­è¨ˆäººå“¡æ˜¯ä¸å¯èƒ½çŸ¥é“ä½¿ç”¨Swingé¡žåˆ¥çš„äººï¼Œåœ¨æŸå€‹äº‹ä»¶ç™¼ç”Ÿå¾Œæ‰€è¦åŸ·è¡Œçš„å‹•ä½œæ˜¯ä»€éº¼çš„ï¼Œä»–å€‘æŽ¡ç”¨äº†Commandæ¨¡å¼ï¼Œä»¥ä¸Šé¢çš„éœ€æ±‚ä½œç‚ºä¾‹å­ï¼Œä¸€å€‹å¯¦ä½œçš„ç‰‡æ®µå¯èƒ½åƒæ˜¯é€™å€‹æ¨£å­ï¼š
 menuCut.addActionListener(
     new ActionListener() {
         public void actionPerformed(ActionEvent e) {
-            // textArea ÊÇ JTextAreaµÄÒ»‚€ŒÀý
+            // textArea æ˜¯ JTextAreaçš„ä¸€å€‹å¯¦ä¾‹
             textArea.cut();  
          }
     });
  
-ÉÏÃæ‚€ß@Æ¬¶Î’ñÓÃµÄÊÇJavaµÄÄäÃûî„e£¨Anonymous class£©£¬Ò»‚€²»¾ßÃûµÄî„eŒ×÷ÁËActionListener½éÃæ£¬ËüÖ»ÓÐÒ»‚€·½·¨actionPerformed()£¬Ê¹ÓÃ addActionListener()žéJMenuItem¼ÓÈëß@‚€î„eµÄŒÀý£¬Ò»µ«ß@‚€JMenuItem±»°´ÏÂ£¬Ëü¾Í•þÕ{ÓÃ actionPerformed()·½·¨£¬ÒÔˆÌÐÐÄúËù¶¨ÁxµÄ¹¤×÷£¬ UML î„eˆDÈçÏÂËùÊ¾£º
+ä¸Šé¢å€‹é€™ç‰‡æ®µæŽ¡ç”¨çš„æ˜¯Javaçš„åŒ¿åé¡žåˆ¥ï¼ˆAnonymous classï¼‰ï¼Œä¸€å€‹ä¸å…·åçš„é¡žåˆ¥å¯¦ä½œäº†ActionListenerä»‹é¢ï¼Œå®ƒåªæœ‰ä¸€å€‹æ–¹æ³•actionPerformed()ï¼Œä½¿ç”¨ addActionListener()ç‚ºJMenuItemåŠ å…¥é€™å€‹é¡žåˆ¥çš„å¯¦ä¾‹ï¼Œä¸€ä½†é€™å€‹JMenuItemè¢«æŒ‰ä¸‹ï¼Œå®ƒå°±æœƒèª¿ç”¨ actionPerformed()æ–¹æ³•ï¼Œä»¥åŸ·è¡Œæ‚¨æ‰€å®šç¾©çš„å·¥ä½œï¼Œ UML é¡žåˆ¥åœ–å¦‚ä¸‹æ‰€ç¤ºï¼š
 Command
-Ê¹ÓÃCommandÄ£Ê½£¬Äú¿ÉÒÔ¸ù“þŒëHµÄÐèÇóíÕ{ÓÃˆÌÐÐµÄÎï¼þ£¬ÖÁì¶ˆÌÐÐµÄ¼š¹·âÑbÔÚÊÂÏÈ¶¨ÁxºÃµÄ·½·¨£¨ÀýÈçactionPerformed()·½·¨£¬ÏÂÃæŒëH×«Œ‘‚€³ÌÊ½×÷žéÊ¾¹ £º
+ä½¿ç”¨Commandæ¨¡å¼ï¼Œæ‚¨å¯ä»¥æ ¹æ“šå¯¦éš›çš„éœ€æ±‚ä¾†èª¿ç”¨åŸ·è¡Œçš„ç‰©ä»¶ï¼Œè‡³æ–¼åŸ·è¡Œçš„ç´°ç¯€å°è£åœ¨äº‹å…ˆå®šç¾©å¥½çš„æ–¹æ³•ï¼ˆä¾‹å¦‚actionPerformed()æ–¹æ³•ï¼Œä¸‹é¢å¯¦éš›æ’°å¯«å€‹ç¨‹å¼ä½œç‚ºç¤ºç¯„ï¼š
 
     * Invoker.java
 
@@ -83,7 +83,7 @@ public class LowerCaseHello implements ICommand {
 } 
 
 
-ClientÄ£”MëS™CµÄÕˆÇó£¬InvokerÊÂÏÈK²»ÖªµÀClient•þ°l³öÊ²üNÐèÇó£¬µ«Ëü¿‚ÊÇ¿ÉÒÔˆÌÐÐClientµÄÕˆÇó£º
+Clientæ¨¡æ“¬éš¨æ©Ÿçš„è«‹æ±‚ï¼ŒInvokeräº‹å…ˆä¸¦ä¸çŸ¥é“Clientæœƒç™¼å‡ºä»€éº¼éœ€æ±‚ï¼Œä½†å®ƒç¸½æ˜¯å¯ä»¥åŸ·è¡ŒClientçš„è«‹æ±‚ï¼š
 
     * Client.java
 
@@ -104,8 +104,8 @@ public class Client {
     }
 } 
 
-ÏñÉÏÃæß@·NŒ¢ÕˆÇó·âÑbÆðíµÄÄ£Ê½£¬¾ÍÊÇCommandÄ£Ê½£¬ËüŒ¢ÕˆÇóááµÄŒ×÷²¿·ÝÁô´ýÊ¹ÓÃÕßŒ×÷£¬CommandÄ£Ê½µÄUMLî„eˆDÈçÏÂËùÊ¾£º
+åƒä¸Šé¢é€™ç¨®å°‡è«‹æ±‚å°è£èµ·ä¾†çš„æ¨¡å¼ï¼Œå°±æ˜¯Commandæ¨¡å¼ï¼Œå®ƒå°‡è«‹æ±‚å¾Œçš„å¯¦ä½œéƒ¨ä»½ç•™å¾…ä½¿ç”¨è€…å¯¦ä½œï¼ŒCommandæ¨¡å¼çš„UMLé¡žåˆ¥åœ–å¦‚ä¸‹æ‰€ç¤ºï¼š
 
 Command
 
-CommandÄ£Ê½ÊÇ‚€Ïà®”³£ÒŠµÄÄ£Ê½£¬³ýÁËÏÈÇ°Õ„ß^µÄSwingÒ•´°³ÌÊ½ÔOÓ‹Àý×ÓÖ®Íâ£¬¬FÔÚÔS¶àWeb MVC Framework Ò²¶¼’ñÓÃCommandÄ£Ê½íÔOÓ‹Controller£¬ÔÚß@˜ÓµÄÀý×ÓÖÐ£¬Container¾ÍºÃ±ÈCommandÄ£Ê½ÖÐClientµÄ½ÇÉ«£¬¶øÇ°¶Ë Controller£¨ÀýÈçJSP¼¼ÐgÖÐÍ¨³£•þ’ñÓÃµÄDispatcher Servlet£©¾ÍÏà®”ì¶Invoker£¬¶øAction„tÏà®”ì¶ICommandµÄ½ÇÉ«£¬ÖÁì¶Receiver½ÇÉ«¾ÍÊÇÄú·âÑbÔÚActionÖÐˆÌÐÐµÄÎï¼þÁË¡£
+Commandæ¨¡å¼æ˜¯å€‹ç›¸ç•¶å¸¸è¦‹çš„æ¨¡å¼ï¼Œé™¤äº†å…ˆå‰è«‡éŽçš„Swingè¦–çª—ç¨‹å¼è¨­è¨ˆä¾‹å­ä¹‹å¤–ï¼Œç¾åœ¨è¨±å¤šWeb MVC Framework ä¹Ÿéƒ½æŽ¡ç”¨Commandæ¨¡å¼ä¾†è¨­è¨ˆControllerï¼Œåœ¨é€™æ¨£çš„ä¾‹å­ä¸­ï¼ŒContainerå°±å¥½æ¯”Commandæ¨¡å¼ä¸­Clientçš„è§’è‰²ï¼Œè€Œå‰ç«¯ Controllerï¼ˆä¾‹å¦‚JSPæŠ€è¡“ä¸­é€šå¸¸æœƒæŽ¡ç”¨çš„Dispatcher Servletï¼‰å°±ç›¸ç•¶æ–¼Invokerï¼Œè€ŒActionå‰‡ç›¸ç•¶æ–¼ICommandçš„è§’è‰²ï¼Œè‡³æ–¼Receiverè§’è‰²å°±æ˜¯æ‚¨å°è£åœ¨Actionä¸­åŸ·è¡Œçš„ç‰©ä»¶äº†ã€‚
