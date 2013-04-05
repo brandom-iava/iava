@@ -1,8 +1,10 @@
 1.概念
-observer模式定义对象间的一对多的依赖关系,当一个对象的状态发生改变时, 所有依赖于它的对象都得到通知并被自动更新。JDK里提供的observer设计模式的实现由java.util.Observable类和 java.util.Observer接口组成。从名字上可以清楚的看出两者在Observer 设计模式中分别扮演的角色：Observer是观察者角色，Observable是被观察目标(subject)角色。
+observer模式定义对象间的一对多的依赖关系,当一个对象的状态发生改变时, 所有依赖于它的对象都得到通知并被自动更新。JDK里提供的observer设计模式的实现由java.util.Observable类
+和 java.util.Observer接口组成。从名字上可以清楚的看出两者在Observer 设计模式中分别扮演的角色：Observer是观察者角色，Observable是被观察目标(subject)角色。
 2.实例
 该实例模拟了烧水的过程，涉及三个对象，Heater(热水器),Display（显示器）,Alarm(报警器).
-   模拟过程：为了便于运行，水的初始化温度为90，沸点为95，显示器依据热水器显示温度，显示器显示温度为95时，报警器开始报警。明显可以看出 Heater是subject ,Display 是它的 Obsrver，同时Display亦是suject，因为它要被报警器观察，所以Alarm是Display的Observer.
+   模拟过程：为了便于运行，水的初始化温度为90，沸点为95，显示器依据热水器显示温度，显示器显示温度为95时，报警器开始报警。明显可以看出 Heater是subject ,Display 是它的 Obsrver，
+   同时Display亦是suject，因为它要被报警器观察，所以Alarm是Display的Observer.
    实现过程：
 a.Heater.java
 Java代码
