@@ -19,7 +19,8 @@ menuCut.addActionListener(
          }
     });
  
-上面個這片段採用的是Java的匿名類別（Anonymous class），一個不具名的類別實作了ActionListener介面，它只有一個方法actionPerformed()，使用 addActionListener()為JMenuItem加入這個類別的實例，一但這個JMenuItem被按下，它就會調用 actionPerformed()方法，以執行您所定義的工作， UML 類別圖如下所示：
+上面個這片段採用的是Java的匿名類別（Anonymous class），一個不具名的類別實作了ActionListener介面，它只有一個方法actionPerformed()，
+使用 addActionListener()為JMenuItem加入這個類別的實例，一但這個JMenuItem被按下，它就會調用 actionPerformed()方法，以執行您所定義的工作， UML 類別圖如下所示：
 Command
 使用Command模式，您可以根據實際的需求來調用執行的物件，至於執行的細節封裝在事先定義好的方法（例如actionPerformed()方法，下面實際撰寫個程式作為示範：
 
