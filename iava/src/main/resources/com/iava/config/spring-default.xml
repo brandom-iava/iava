@@ -22,6 +22,16 @@
 	<!-- 自动扫描制定包名下的含有bean注解的类自动装入到bean容器 -->
 	<context:component-scan base-package="com.iava.opensource.spring">
 	</context:component-scan>
+	
+	
+	<!-- aop配置
+    <aop:config proxy-target-class="true">
+		<aop:advisor pointcut="execution(* *..service.*(..))"
+			advice-ref="txAdvice" />
+	
+		<aop:advisor pointcut="execution(* com.tydic.bcp.service.customer.CustomerServiceImpl.queryCustInfo(..))" advice-ref="default.cache.Interceptor"/>
+	</aop:config>
+	事务等切面  -->
 	<bean
 		class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
 		<property name="locations">
