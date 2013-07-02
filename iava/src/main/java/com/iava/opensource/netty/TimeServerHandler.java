@@ -8,6 +8,7 @@ import org.jboss.netty.channel.ChannelFutureListener;
 import org.jboss.netty.channel.ChannelHandlerContext;
 import org.jboss.netty.channel.ChannelStateEvent;
 import org.jboss.netty.channel.ExceptionEvent;
+import org.jboss.netty.channel.MessageEvent;
 import org.jboss.netty.channel.SimpleChannelHandler;
 
 public class TimeServerHandler extends SimpleChannelHandler {
@@ -28,6 +29,18 @@ public class TimeServerHandler extends SimpleChannelHandler {
 			}
 		});
 	}
+
+	
+	/* (non-Javadoc)
+	 * @see org.jboss.netty.channel.SimpleChannelHandler#messageReceived(org.jboss.netty.channel.ChannelHandlerContext, org.jboss.netty.channel.MessageEvent)
+	 */
+	@Override
+	public void messageReceived(ChannelHandlerContext ctx, MessageEvent e)
+			throws Exception {
+		System.out.println("111" + e.getMessage());
+		super.messageReceived(ctx, e);
+	}
+
 
 	@Override
 	public void exceptionCaught(ChannelHandlerContext ctx, ExceptionEvent e) {

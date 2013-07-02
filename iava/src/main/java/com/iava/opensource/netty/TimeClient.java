@@ -32,6 +32,7 @@ public class TimeClient {
         
         bootstrap.setOption("tcpNoDelay", true);
         bootstrap.setOption("keepAlive", true);
+      
 
         ChannelFuture future = bootstrap.connect(new InetSocketAddress(host, port));
         future.awaitUninterruptibly();
