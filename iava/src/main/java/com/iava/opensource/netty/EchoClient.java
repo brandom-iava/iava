@@ -78,7 +78,7 @@ public class EchoClient {
         for (int i = 0; i < bu.capacity(); i ++) {
         	bu.writeByte((byte) i);
         }
-        future.getChannel().write(bu);
+       
         future.getChannel().getCloseFuture().awaitUninterruptibly();
         // Wait until the connection is closed or the connection attempt fails.
         future.getChannel().write("hello echo!");

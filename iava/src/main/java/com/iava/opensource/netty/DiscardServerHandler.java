@@ -1,6 +1,7 @@
 package com.iava.opensource.netty;
 
 import org.jboss.netty.buffer.ChannelBuffer;
+import org.jboss.netty.buffer.ChannelBuffers;
 import org.jboss.netty.channel.Channel;
 import org.jboss.netty.channel.ChannelHandlerContext;
 import org.jboss.netty.channel.ExceptionEvent;
@@ -17,8 +18,16 @@ public class DiscardServerHandler extends SimpleChannelHandler {
             System.out.println((char) message.readByte());
             System.out.flush();
         }*/
-    	
-    	ch.write(message);
+    	ChannelBuffer b = ChannelBuffers.dynamicBuffer(6);
+    	b.writeByte('1');
+    	b.writeByte('2');
+    	b.writeByte('3');
+    	b.writeByte('4');
+    	b.resetReaderIndex();
+    	/*System.out.println((char)b.readByte());
+    	System.out.println((char)b.readByte());
+    	System.out.println((char)b.readByte());*/
+    	ch.write(b);
     }
 
     @Override
