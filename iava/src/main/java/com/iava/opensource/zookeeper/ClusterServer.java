@@ -8,6 +8,7 @@ public class ClusterServer {
 		ZkClient zkClient = new ZkClient(zkServer);  
 		if(!zkClient.exists(Constant.ROOT)){
 			zkClient.createPersistent(Constant.ROOT);
+			zkClient.createEphemeral(Constant.ROOT + Constant.PATH_SPLIT + appServer);
 		}else{
 			zkClient.createEphemeral(Constant.ROOT + Constant.PATH_SPLIT + appServer);
 		}
