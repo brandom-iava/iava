@@ -1,7 +1,5 @@
 package com.iava.opensource.zookeeper;
 
-import java.util.List;
-
 import org.I0Itec.zkclient.ZkClient;
 
 public class ClusterServer {
