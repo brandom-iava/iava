@@ -15,7 +15,7 @@ public class ZkClientTest {
 	 */
 	public static void main(String[] args) throws InterruptedException {
 		// TODO Auto-generated method stub
-		ZkClient client = new ZkClient("localhost:2181");
+		ZkClient client = new ZkClient("192.168.9.127:2181");
 		client.subscribeStateChanges(new IZkStateListener() {
 			public void handleStateChanged(KeeperState state) throws Exception {
 				if (state == KeeperState.Disconnected) {
@@ -28,7 +28,7 @@ public class ZkClientTest {
 				stateChanged();
 			}
 		});
-		client.subscribeChildChanges("/dubbo/test", new IZkChildListener() {
+		client.subscribeChildChanges("/wubptest", new IZkChildListener() {
 			
 			public void handleChildChange(String parentPath, List<String> currentChilds)
 					throws Exception {
@@ -38,7 +38,8 @@ public class ZkClientTest {
 			}
 		});
 		
-		client.createEphemeral("/dubbo/test/data3");
+		client.createEphemeral("/wubptest/data3");
+		//client.
 		Thread.sleep(60000 * 2);
 	}
 	
