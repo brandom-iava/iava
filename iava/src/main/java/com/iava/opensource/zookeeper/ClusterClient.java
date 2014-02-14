@@ -14,7 +14,7 @@ public abstract  class ClusterClient {
 	    private ZkClient zkClient;  
 	  
 	    public void failOver() {  
-	        zkClient.subscribeChildChanges(Constant.root, new IZkChildListener() {
+	        zkClient.subscribeChildChanges(Constant.ROOT, new IZkChildListener() {
 				@Override
 				public void handleChildChange(String parentPath, List<String> currentChilds)
 						throws Exception {
@@ -33,17 +33,17 @@ public abstract  class ClusterClient {
 	    }  
 	      
 	    public void join(String client){  
-	        if(!zkClient.exists(Constant.client)){  
-	            zkClient.createPersistent(Constant.client);  
+	        if(!zkClient.exists(Constant.CLIENT)){  
+	            zkClient.createPersistent(Constant.CLIENT);  
 	        }  
-	        if(!zkClient.exists(Constant.client+"/"+client)){  
-	            zkClient.createEphemeral(Constant.client+"/"+client);  
+	        if(!zkClient.exists(Constant.CLIENT+"/"+client)){  
+	            zkClient.createEphemeral(Constant.CLIENT+"/"+client);  
 	        }  
 	    }  
 	      
 	    public void leave(String client){         
-	        if(zkClient.exists(Constant.client+"/"+client)){  
-	            zkClient.delete(Constant.client+"/"+client);  
+	        if(zkClient.exists(Constant.CLIENT+"/"+client)){  
+	            zkClient.delete(Constant.CLIENT+"/"+client);  
 	        }  
 	        zkClient.close();  
 	    } 

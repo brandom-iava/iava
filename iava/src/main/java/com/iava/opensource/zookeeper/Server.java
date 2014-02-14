@@ -35,7 +35,7 @@ public class Server {
             bootstrap.setOption("child.keepAlive", true);  
             bootstrap.bind(new InetSocketAddress(8081));  
               
-            ClusterServer.join("127.0.0.1:8081", "127.0.0.1:2181");  
+           ClusterServer.join("127.0.0.1:8081", "127.0.0.1:2181");  
     }  
   
 } 
